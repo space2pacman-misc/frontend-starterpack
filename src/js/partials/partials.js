@@ -1,2 +1,0 @@
-//partials
-//= partials/partials.js
