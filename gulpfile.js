@@ -29,7 +29,7 @@ var path = {
     },
     src: {
         html: 'src/*.html',
-        js: 'src/js/main.js',
+        js: 'src/js/*.js',
         libs: 'src/libs/**/*.js',
         style: 'src/style/*.scss',
         csslibs: 'src/style/libs/*.css',
