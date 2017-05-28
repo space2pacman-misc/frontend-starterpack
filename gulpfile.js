@@ -9,6 +9,8 @@ var gulp = require("gulp"),
     pngquant = require("imagemin-pngquant"),
     sourcemaps = require("gulp-sourcemaps"),
     cssmin = require("gulp-clean-css"),
+    ftp = require("gulp-ftp"),
+    json = require("gulp-json-transform"),
     browsersync = require("browser-sync"),
     reload = browsersync.reload;
 
@@ -79,9 +81,7 @@ gulp.task('libs:build', function () {
 
 gulp.task('css:build', function () {
     gulp.src(path.src.csslibs)
-        .pipe(sass({
-            errLogToConsole: true
-        }).on('error', sass.logError))
+        .pipe(cssmin())
         .pipe(gulp.dest(path.build.csslibs))
         .pipe(reload({stream: true}));
 });
@@ -161,5 +161,17 @@ gulp.task('browsersync', function () {
 gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
+
+gulp.task('_ftp', function () {
+    var ftpjson = require('./ftp.json');
+    return gulp.src('build/**')
+               .pipe(ftp({
+                   host: ftpjson.host,
+                   user: ftpjson.user,
+                   pass: ftpjson.pass,
+                   remotePath: ftpjson.remotePath
+               }));
+});
+
 
 gulp.task('_default', ['build', 'browsersync', 'watch']);
