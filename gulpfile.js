@@ -62,7 +62,7 @@ gulp.task('html:build', function () {
         .pipe(rigger())
         .pipe(gulp.dest(path.build.html))
         .pipe(reload({stream: true}));
-})
+});
 
 gulp.task('js:build', function () {
     gulp.src(path.src.js)
