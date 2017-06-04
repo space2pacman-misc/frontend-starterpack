@@ -112,8 +112,9 @@ gulp.task('image:build', function () {
         .pipe(imgmin({
             progressive: true,
             svgoPlugins: [{ removeViewBox: false }],
-            use: [pngquant()],
-            interlaced: true
+            use: [pngcrush()],
+            interlaced: true,
+            verbose: true
         }))
         .pipe(gulp.dest(path.build.img))
         .pipe(reload({stream: true}));
