@@ -7,8 +7,6 @@ var gulp = require("gulp"),
     autoprefixer = require("gulp-autoprefixer"),
     watch = require("gulp-watch"),
     rimraf = require("rimraf"),
-    imgmin = require("gulp-imagemin"),
-    pngcrush = require("imagemin-pngcrush"),
     sourcemaps = require("gulp-sourcemaps"),
     cssmin = require("gulp-clean-css"),
     ftp = require("gulp-ftp"),
@@ -86,13 +84,6 @@ gulp.task('style:build', function () {
 
 gulp.task('image:build', function () {
     gulp.src(path.src.img)
-        .pipe(imgmin({
-            progressive: true,
-            svgoPlugins: [{ removeViewBox: false }],
-            use: [pngcrush()],
-            interlaced: true,
-            verbose: true
-        }))
         .pipe(gulp.dest(path.build.img));
 });
 
