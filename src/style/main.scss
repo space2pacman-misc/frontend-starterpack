@@ -1,2 +1,9 @@
-﻿// templates
-@import "templates/template.scss";
+﻿// inc
+@import "inc/fonts";
+@import "inc/reset";
+@import "inc/nav";
+@import "inc/template";
+@import "inc/variables";
+
+// pages
+@import "pages/index";
