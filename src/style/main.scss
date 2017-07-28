@@ -1,11 +1,9 @@
-﻿// inc
-@import "inc/variables";
-@import "inc/mixins";
-@import "inc/fonts";
-@import "inc/reset";
+﻿//global
+@import "global/variables";
+@import "global/reset";
+@import "global/mixins";
+@import "global/fonts";
+@import "global/base";
+
+// inc
 @import "inc/nav";
-@import "inc/base";
-
-
-// pages
-@import "pages/index";

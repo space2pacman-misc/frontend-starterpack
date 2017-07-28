@@ -1,0 +1,31 @@
+﻿@mixin clearfix {
+    &:after {
+        content:'';
+        display:table!important;
+        clear:both;
+        height:0!important;
+        visibility:hidden;
+    }
+}
+
+@mixin clearfix {
+    &:after {
+        content:'';
+        display:table!important;
+        clear:both;
+        height:0!important;
+        visibility:hidden;
+    }
+}
+
+@mixin mq($from, $to: false) {
+    @if $to {
+        @media (min-width:$from) and (max-width:$to) {
+            @content;
+        }
+    } @else {
+        @media (max-width:$from) {
+            @content;
+        }
+    }
+}
